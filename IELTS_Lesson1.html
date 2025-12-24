@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Lesson 1: Education | 雅思核心词汇学习</title>
+    <style>
+        :root {
+            --bg-color: #fcf9f2; /* 奶油米黄背景 */
+            --card-bg: #ffffff;
+            --primary-color: #e0b0a8; /* 柔和脏粉 */
+            --primary-hover: #d49a91;
+            --accent-blue: #bcd4e6; /* 婴儿蓝 */
+            --accent-green: #dbe7c9; /* 抹茶绿 */
+            --text-main: #5d5d5d;
+            --text-light: #8b8b8b;
+            --highlight: #fff0f5;
+            --shadow: 0 8px 24px rgba(149, 157, 165, 0.1);
+            --radius: 20px;
+        }
+
+        body {
+            font-family: 'Nunito', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* 导航栏 */
+        header {
+            background-color: var(--card-bg);
+            padding: 20px 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 1.5rem;
+            color: var(--text-main);
+            margin: 0;
+        }
+
+        nav button {
+            background: none;
+            border: none;
+            font-size: 1rem;
+            margin-left: 20px;
+            cursor: pointer;
+            color: var(--text-light);
+            padding: 8px 16px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        nav button.active, nav button:hover {
+            background-color: var(--highlight);
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* 主容器 */
+        main {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            min-height: 80vh;
+        }
+
+        .section {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 单词卡片样式 (Study Section) */
+        .phrase-card {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(0,0,0,0.02);
+        }
+
+        .core-phrase {
+            border-bottom: 2px dashed var(--accent-blue);
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+
+        .phrase-title {
+            font-size: 1.8rem;
+            color: #4a4a4a;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .audio-btn {
+            background: var(--accent-blue);
+            border: none;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            transition: transform 0.2s;
+        }
+
+        .audio-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .definition-en {
+            font-style: italic;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+
+        .definition-cn {
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .example-box {
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            padding: 15px;
+            border-left: 4px solid var(--accent-green);
+        }
+
+        .example-en {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .example-cn {
+            color: #777;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+
+        /* 联想词部分 */
+        .associated-section {
+            margin-top: 20px;
+            padding-top: 10px;
+        }
+
+        .assoc-tag {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+        }
+
+        .assoc-item {
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 2px solid #eee;
+        }
+
+        .assoc-phrase {
+            font-weight: bold;
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        /* Flashcards 样式 */
+        .flashcard-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .flashcard {
+            background-color: transparent;
+            width: 100%;
+            height: 200px;
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .flashcard-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: var(--shadow);
+            border-radius: var(--radius);
+        }
+
+        .flashcard.flipped .flashcard-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flashcard-front, .flashcard-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+            flex-direction: column;
+        }
+
+        .flashcard-front {
+            background-color: var(--card-bg);
+            color: var(--text-main);
+        }
+
+        .flashcard-front h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        
+        .click-hint {
+            font-size: 0.7rem;
+            color: #ccc;
+            margin-top: 10px;
+        }
+
+        .flashcard-back {
+            background-color: var(--accent-green); /* 背面颜色 */
+            color: #556b2f;
+            transform: rotateY(180deg);
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        /* 练习题样式 */
+        .quiz-container {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+
+        .question-block {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 20px;
+        }
+
+        .question-title {
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .options label {
+            display: block;
+            margin-bottom: 10px;
+            cursor: pointer;
+            padding: 8px 12px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .options label:hover {
+            background-color: #f7f7f7;
+        }
+
+        .options input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .text-input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            font-family: inherit;
+            margin-top: 5px;
+            box-sizing: border-box;
+        }
+        
+        .text-input:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            display: block;
+            margin: 30px auto 0;
+            box-shadow: 0 4px 15px rgba(224, 176, 168, 0.4);
+            transition: transform 0.2s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            background-color: var(--primary-hover);
+        }
+
+        .feedback {
+            margin-top: 10px;
+            font-weight: bold;
+            display: none;
+        }
+
+        .correct { color: #88b04b; }
+        .incorrect { color: #ff6f61; }
+
+        .explanation {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+            background: #fdfdfd;
+            padding: 10px;
+            border-radius: 8px;
+        }
+
+        /* 底部 */
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: #aaa;
+            font-size: 0.8rem;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🎓 IELTS Education Lesson 1</h1>
+    <nav>
+        <button onclick="showSection('study')" id="btn-study" class="active">核心课程</button>
+        <button onclick="showSection('flashcards')" id="btn-flashcards">记忆卡片</button>
+        <button onclick="showSection('exercise')" id="btn-exercise">实战练习</button>
+    </nav>
+</header>
+
+<main>
+    <div id="study-section" class="section active">
+        </div>
+
+    <div id="flashcards-section" class="section">
+        <div class="flashcard-container" id="flashcard-grid">
+            </div>
+    </div>
+
+    <div id="exercise-section" class="section">
+        <div class="quiz-container">
+            <h2>巩固练习</h2>
+            <p style="color:#888; margin-bottom: 20px;">共25题，包含单选、填空、判断与配对。</p>
+            <form id="quiz-form">
+                </form>
+            <button class="submit-btn" onclick="checkAnswers()">提交答案 & 查看解析</button>
+            <div id="score-display" style="text-align:center; margin-top:20px; font-size:1.5rem; font-weight:bold; color:var(--primary-color);"></div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>Based on IELTS Education Lesson 1 Material. <br>Designed for Guided Learning.</p>
+</footer>
+
+<script>
+    // === 数据源：基于PDF内容提取 ===
+    const lessonData = [
+        {
+            id: 1,
+            phrase: "sth. be an arduous process",
+            defEn: "sth. be a tiring process that requires a great deal of effort",
+            defCn: "某事是一个需要付出艰苦努力的过程",
+            exampleEn: "Attending a university with a top-tier reputation often is an arduous but rewarding process.",
+            exampleCn: "考入一所名牌大学通常是一次需要付出艰苦努力但回报也同样丰厚的过程。",
+            associated: [
+                {
+                    phrase: "be very rewarding",
+                    defEn: "making someone feel satisfied",
+                    defCn: "有回报的",
+                    exampleEn: "Teaching can be a very rewarding career. It allows teachers to have an input in the development of young lives.",
+                    exampleCn: "教学是一项回报丰厚的事业。老师们可以在教学的过程中，用自己的努力去培育孩子们的成长。"
+                },
+                {
+                    phrase: "someone's aspiration / pursuit",
+                    defEn: "someone's strong wish for achievement",
+                    defCn: "梦想，追求 (应试时替代 dream 的地道表达)",
+                    exampleEn: "The educational aspirations/pursuits of rural youth tend to be different from those of students living elsewhere.",
+                    exampleCn: "相比其他地方的孩子，农村孩子在教育上的追求与渴望是大不相同的。"
+                }
+            ]
+        },
+        {
+            id: 2,
+            phrase: "concentrate on sth.",
+            defEn: "direct someone's thoughts or attention towards sth.",
+            defCn: "集中精力于某事",
+            exampleEn: "Some people think it is more effective to educate boys and girls in single-sex schools because they believe this environment reduces distractions and encourage pupils to concentrate on their studies.",
+            exampleCn: "一些人认为在男校或女校教育孩子更为有效，因为单一性别的环境可以减少干扰并鼓励孩子们集中精力地学习。",
+            associated: [
+                {
+                    phrase: "form the basis of sth.",
+                    defEn: "provide the ideas or actions from which sth. can develop",
+                    defCn: "为某事物打下基础",
+                    exampleEn: "Traditional ways of teaching form the basis of the lesson.",
+                    exampleCn: "传统的教学方式构成授课的基础。"
+                },
+                {
+                    phrase: "use lateral thinking",
+                    defEn: "use a creative approach to solving problems",
+                    defCn: "鼓励发散型思维 / 创造性思维",
+                    exampleEn: "Using lateral thinking, the students can solve problems in an unconventional manner now.",
+                    exampleCn: "通过利用发散式思维，学生们可以用不走寻常路的方式来解决问题。"
+                },
+                {
+                    phrase: "rely on linear thinking",
+                    defEn: "depend on habits of thought in which one idea follows directly from another one",
+                    defCn: "依赖于直线型的思维；受到思维的局限 (反义短语)",
+                    exampleEn: "The students should not rely on linear thinking habits. Instead, they should think more innovatively.",
+                    exampleCn: "学生们不应受到线性思维惯性的束缚，而相反地，他们应该更多地去创造性思考。"
+                }
+            ]
+        },
+        {
+            id: 3,
+            phrase: "break the mould",
+            defEn: "change a situation by doing sth. unprecedented",
+            defCn: "打破常规",
+            exampleEn: "He made an attempt to break the mould of British politics.",
+            exampleCn: "他对打破英国政坛一成不变的局面做出了一次尝试。",
+            associated: [
+                {
+                    phrase: "academic performance",
+                    defEn: "how good or bad a student is academically",
+                    defCn: "学业表现",
+                    exampleEn: "Tyler's academic performance has been disappointing.",
+                    exampleCn: "泰勒的学习表现十分令人失望。"
+                },
+                {
+                    phrase: "academic qualifications",
+                    defEn: "the degrees, diplomas and certificates that someone has acquired",
+                    defCn: "学历 / 学历证书",
+                    exampleEn: "Today academic qualifications are essential for getting a reasonable career.",
+                    exampleCn: "学历证书在当今对找到一份体面的工作有着至关重要的作用。"
+                },
+                {
+                    phrase: "standardised test",
+                    defEn: "tests that are designed to give each test-taker the same questions in the same format",
+                    defCn: "标准化考试",
+                    exampleEn: "High scores on standardised tests are not necessarily the best indicator of giftedness.",
+                    exampleCn: "一名学生在标准化考试中拿到高分并非就一定意味着他拥有很高的天赋。"
+                },
+                {
+                    phrase: "be gifted / be talented",
+                    defEn: "has an impressive natural ability",
+                    defCn: "有天赋的",
+                    exampleEn: "In the process of being educated we can learn from the achievements of those more gifted than ourselves.",
+                    exampleCn: "在接受教育的过程中我们可以从比我们更有天赋的人们所获得的成就中学习。"
+                }
+            ]
+        },
+        {
+            id: 4,
+            phrase: "rote memorisation",
+            defEn: "a learning technique that focuses on learning by repetition",
+            defCn: "重复记忆，机械记忆",
+            exampleEn: "Rote memorisation is not entirely useless. It can help children to learn the basics such as the multiplication tables.",
+            exampleCn: "死记硬背并非是一无是处的。它可以帮助孩子牢记住像乘法表这样的基础知识。",
+            associated: [
+                {
+                    phrase: "learn sth. by heart",
+                    defEn: "learn sth. so that you can remember it perfectly",
+                    defCn: "熟记某种知识",
+                    exampleEn: "The view of repetitively boring lessons and learning the facts by heart may be unfair and unjustified.",
+                    exampleCn: "认为这些学校中的教学重复枯燥而且死记硬背的看法也许是不公正的。"
+                },
+                {
+                    phrase: "read extensively",
+                    defEn: "read widely",
+                    defCn: "广泛地阅读",
+                    exampleEn: "Some people argue that examinations do not motivate students to read extensively.",
+                    exampleCn: "一些人认为考试并没有刺激到学生去广泛地阅读。"
+                },
+                {
+                    phrase: "induce cramming",
+                    defEn: "cause students to prepare hastily for an examination",
+                    defCn: "导致考前突击 (反义短语)",
+                    exampleEn: "It concerns some parents that these examinations may induce cramming.",
+                    exampleCn: "一些家长担心这些考试会导致学生们在考前突击。"
+                }
+            ]
+        },
+        {
+            id: 5,
+            phrase: "ignorance",
+            defEn: "lack of knowledge about a particular subject",
+            defCn: "缺乏对于某科目的了解，对某科目的无知",
+            exampleEn: "No one minds mistakes or ignorance as long as you are prepared to learn from them.",
+            exampleCn: "没有人会介意犯错误或无知，只要你准备好去从中学习或吸取教训。",
+            associated: [
+                {
+                    phrase: "standard of upright conduct",
+                    defEn: "standard of honest and responsible behaviour",
+                    defCn: "行为准则 / 良好行为规范",
+                    exampleEn: "At school students should be taught respect for the rights of others and standards of upright conduct.",
+                    exampleCn: "学生在学校应养成尊重他人权利、遵守良好行为规范的好习惯。"
+                },
+                {
+                    phrase: "students' autonomy",
+                    defEn: "students' right to organise their own activities",
+                    defCn: "学生的自我管理",
+                    exampleEn: "Students' autonomy should be encouraged when there are not enough teachers to go around.",
+                    exampleCn: "当师资短缺时，校方应提倡学生的自我管理。"
+                },
+                {
+                    phrase: "self-discipline",
+                    defEn: "the ability to make oneself do things when he/she should",
+                    defCn: "自制力",
+                    exampleEn: "Lydia lacks self-discipline and is unable to finish anything.",
+                    exampleCn: "莉迪亚缺乏自制能力，导致她什么也完不成。"
+                },
+                {
+                    phrase: "role model",
+                    defEn: "a person whom someone admires and whose behaviour and attitudes he/she tries to copy",
+                    defCn: "榜样",
+                    exampleEn: "My elder brother has always been a role model for me.",
+                    exampleCn: "我哥哥一直是我心中的榜样。"
+                },
+                 {
+                    phrase: "set a good example",
+                    defEn: "encourage or inspire people to do the same thing as one does",
+                    defCn: "为别人树立榜样",
+                    exampleEn: "His dad was always telling him to set a good example for his younger brother.",
+                    exampleCn: "他的父亲总是告诉他要给弟弟树立一个好榜样。"
+                }
+            ]
+        },
+        {
+            id: 6,
+            phrase: "meet someone's expectations",
+            defEn: "be as good as expected",
+            defCn: "达到某人的期望",
+            exampleEn: "His academic performance failed to meet his parents' expectations.",
+            exampleCn: "他的学习成绩没有达到她父母的期望。",
+            associated: [
+                {
+                    phrase: "fall short of someone's expectations",
+                    defEn: "be disappointing to someone",
+                    defCn: "未能达到某人的期望",
+                    exampleEn: "Jamie kept falling short of my expectations.",
+                    exampleCn: "吉米总是让我失望。"
+                },
+                {
+                    phrase: "cannot be guaranteed success",
+                    defEn: "There is no assurance that something will be a success",
+                    defCn: "(某事物)未必一定会成功或者有效",
+                    exampleEn: "So far no teaching methods can be guaranteed success.",
+                    exampleCn: "目前为止没有任何一种教学方法能包治百病。"
+                },
+                {
+                    phrase: "cover a lot of ground",
+                    defEn: "(of subjects or courses) deal with much information and many facts",
+                    defCn: "(在课程或科目中)覆盖了很广泛的领域",
+                    exampleEn: "We've covered a lot of ground in this class in the past couple of months.",
+                    exampleCn: "我们在过去几个月里广泛学习了这门课中的各种知识。"
+                }
+            ]
+        },
+        {
+            id: 7,
+            phrase: "be well-rounded",
+            defEn: "have a wide variety of experiences in life",
+            defCn: "(某人)爱好和经历都很广泛的 / 全面发展的",
+            exampleEn: "She's a well-rounded person who not only works hard but also has a varied social life.",
+            exampleCn: "她是一个多才多艺的人，不仅在工作中认真努力，在业余生活中也有着广泛的爱好与经历。",
+            associated: [
+                 {
+                    phrase: "comprehensive coverage of sth.",
+                    defEn: "include many details or aspects of sth.",
+                    defCn: "广泛涉及某方面的知识",
+                    exampleEn: "The impression is that the logical nature of the textbooks and their comprehensive coverage of different types of examples renders work sheets unnecessary.",
+                    exampleCn: "给人的印象是教材的逻辑性和所举实例的广泛性让课堂练习簿变得不再必要。"
+                },
+                {
+                    phrase: "self-paced learning / education",
+                    defEn: "learning whose rate of speed can be set or regulated by the students themselves",
+                    defCn: "学生可以自己控制进度的学习",
+                    exampleEn: "Self-paced distance learning offers students convenience and flexibility.",
+                    exampleCn: "学生可以自己控制进度的远程学习方式给了学生们更多的便捷和灵活性。"
+                },
+                {
+                    phrase: "core curriculum",
+                    defEn: "the set of common courses that are required of all students",
+                    defCn: "核心课程",
+                    exampleEn: "The core curriculum provide the necessary general education for students, irrespective of their fields of interest.",
+                    exampleCn: "核心课程为学生提供了无论其兴趣爱好，每个人都必须掌握的最基础的教育。"
+                }
+            ]
+        },
+        {
+            id: 8,
+            phrase: "the aims of education",
+            defEn: "the purpose of education",
+            defCn: "教育的目标",
+            exampleEn: "The aims of education should not be restricted to the development of knowledge or skill.",
+            exampleCn: "教育的目标不应只局限于学习知识或技能。",
+            associated: [
+                {
+                    phrase: "academic attainment",
+                    defEn: "sth. that students succeeded in doing in class",
+                    defCn: "学生在学业方面取得的成就",
+                    exampleEn: "Japan has a significantly better record in terms of average mathematical attainment than England and Wales.",
+                    exampleCn: "日本学生在平均算数成绩方面明显高于英格兰和威尔士的学生。"
+                },
+                {
+                    phrase: "specialise in sth.",
+                    defEn: "be an expert of a particular part of a subject",
+                    defCn: "专攻某个领域",
+                    exampleEn: "Grant Freeman, a biologist who specialises in identifying insects, has come to talk to us about his current research work.",
+                    exampleCn: "格兰特·弗里曼，一个昆虫识别方面的专家，来向我们介绍他目前的研究工作。"
+                },
+                {
+                    phrase: "extra-curricular activities",
+                    defEn: "activities that are not part of the course that a student is doing",
+                    defCn: "课外活动",
+                    exampleEn: "These extra-curricular activities offer students an outlet for creativity and problem-solving.",
+                    exampleCn: "这些课外活动给了学生们一个施展自己创作力和问题解决能力的窗口。"
+                },
+                {
+                    phrase: "promote equality",
+                    defEn: "ensure the same conditions, possibilities and rights",
+                    defCn: "促进(学生之间的)平等",
+                    exampleEn: "Some people believe that uniforms can promote equality and encourage better behaviour at school.",
+                    exampleCn: "有人认为统一校服会增进校园内的平等与和谐。"
+                }
+            ]
+        },
+        {
+            id: 9,
+            phrase: "repress individuality",
+            defEn: "discourage qualities that make someone or something different from all others",
+            defCn: "压制个性",
+            exampleEn: "School uniforms may repress individuality and deny students the freedom of choice.",
+            exampleCn: "统一校服可能会压制学生个性的表现并剥夺了他们自由选择的权利。",
+            associated: [
+                {
+                    phrase: "co-education",
+                    defEn: "a system in which students of both sexes are educated together",
+                    defCn: "男女合校的教育",
+                    exampleEn: "Some people believe that co-education can make children feel more comfortable in the company of the opposite sex.",
+                    exampleCn: "有人认为男女混校的教育模式能让孩子们在未来工作中面对异性时更加自然。"
+                },
+                {
+                    phrase: "a single sex school",
+                    defEn: "an all-boys or all-girls school",
+                    defCn: "男校或女校 (反义短语)",
+                    exampleEn: "Some people argue that single sex schools impose abnormal conditions upon children.",
+                    exampleCn: "有人认为单独性别学校的教育模式会对孩子产生不良的影响。"
+                },
+                {
+                    phrase: "mixed-ability class",
+                    defEn: "class involving students of different abilities",
+                    defCn: "各层次学习能力的学生在一起上课的班级",
+                    exampleEn: "It is remarkable that large mixed-ability classes could be kept together for maths throughout all their compulsory schooling.",
+                    exampleCn: "值得一提的是在整个义务教育阶段具有不同层次能力的学生们都可以一起学习数学。"
+                },
+                {
+                    phrase: "distinguish sb./sth. from",
+                    defEn: "recognise differences between people or things",
+                    defCn: "区分人或事物之间的差异",
+                    exampleEn: "Importantly, our commonly held feelings can help distinguish us from other cultures.",
+                    exampleCn: "重要的是，我们彼此共同拥有的情感能帮助我们从其他的文化中将自己分辨出来。"
+                }
+            ]
+        },
+        {
+            id: 10,
+            phrase: "anti-social behaviour",
+            defEn: "behaviour that lacks consideration for others and may cause damage to society",
+            defCn: "对他人和社会有负面影响的行为 / 反社会行为",
+            exampleEn: "Even though the great majority of students are well-behaved, there is a small minority that engage in anti-social behaviour.",
+            exampleCn: "尽管绝大部分的学生都表现良好，但也有一小部分人表现出了反社会的行为。",
+            associated: [
+                 {
+                    phrase: "be well-behaved",
+                    defEn: "behave in a polite or socially acceptable way",
+                    defCn: "行为得体的",
+                    exampleEn: "Apart from a very small minority, the students are well-behaved.",
+                    exampleCn: "除了极个别人，大部分学生都表现良好。"
+                },
+                {
+                    phrase: "adolescence",
+                    defEn: "the period of your life from in which you develop from being a child into being an adult",
+                    defCn: "青春期",
+                    exampleEn: "The book deals with the joys and sorrows of adolescence.",
+                    exampleCn: "这本书讲述了伴着青春时光所到来的甜美与忧伤。"
+                },
+                {
+                    phrase: "a healthy/positive outlook on life",
+                    defEn: "a healthy/positive way of understanding and thinking about life",
+                    defCn: "健康/积极的人生态度",
+                    exampleEn: "A healthy outlook on life can help students to succeed both academically and socially.",
+                    exampleCn: "拥有一个健康的人生态度能帮助学生在学业和社会上都取得成功。"
+                },
+                {
+                    phrase: "well-adjusted adults",
+                    defEn: "adults who can act with good judgment",
+                    defCn: "能够很好地适应社会生活的成年人",
+                    exampleEn: "Educators should ensure that today's students will become productive and well-adjusted adults of tomorrow.",
+                    exampleCn: "教育者应该保证让今天的学生成为明日多产且可塑性强的社会栋梁。"
+                }
+            ]
+        },
+        {
+            id: 11,
+            phrase: "drop out of school",
+            defEn: "quit school before graduation",
+            defCn: "辍学",
+            exampleEn: "In this country, each year many students are forced to drop out of school.",
+            exampleCn: "在这个国家中，每年都有许多学生被迫退学。",
+            associated: [
+                {
+                    phrase: "skip school",
+                    defEn: "avoid attendance at school",
+                    defCn: "逃学",
+                    exampleEn: "Some students skip school because they dislike the material taught in class.",
+                    exampleCn: "一些学生因为不喜欢课堂上所教的内容而逃课。"
+                },
+                {
+                    phrase: "come of age",
+                    defEn: "become an adult",
+                    defCn: "成年",
+                    exampleEn: "In some countries, to come of age means to reach the age when someone is legally recognized as an adult.",
+                    exampleCn: "在一些国家中，成年意味着该人在法律上将被视为成人。"
+                },
+                {
+                    phrase: "be bilingual",
+                    defEn: "be able to speak two languages well or involve two languages",
+                    defCn: "双语的",
+                    exampleEn: "Donna appreciates she had the chance to be bilingual.",
+                    exampleCn: "Donna 很感谢她获得了能学会两种语言的机会。"
+                },
+                {
+                    phrase: "be monolingual",
+                    defEn: "speak or use only one language",
+                    defCn: "单语种的 (反义短语)",
+                    exampleEn: "Experts believe that people who speak two languages have a clear learning advantage over their monolingual schoolmates.",
+                    exampleCn: "专家们相信会说两种语言的学生相比单一语种的学生具有明显的学习优势。"
+                }
+            ]
+        },
+        {
+            id: 12,
+            phrase: "slack off",
+            defEn: "make less of an effort than usual",
+            defCn: "学习或工作不努力，懈怠",
+            exampleEn: "It's about time you stopped slacking off and did some work.",
+            exampleCn: "现在到了收心好好工作的时候了。",
+            associated: [
+                {
+                    phrase: "apply oneself",
+                    defEn: "work hard with a great deal of attention for a long time",
+                    defCn: "尽力去做某事 (注意不是申请的意思)",
+                    exampleEn: "I'm sure you can solve the problem if you apply yourself.",
+                    exampleCn: "我相信如果你尽力去做的话肯定能克服那个难题。"
+                },
+                {
+                    phrase: "disruptive students",
+                    defEn: "students who do not obey rules",
+                    defCn: "不遵守纪律的学生",
+                    exampleEn: "His teacher described him as a disruptive student - always distracting other children.",
+                    exampleCn: "他的老师把他形容为一个总是干扰其他人的不守纪律的学生。"
+                },
+                {
+                    phrase: "unruly students",
+                    defEn: "students who are difficult to control",
+                    defCn: "不听话的学生",
+                    exampleEn: "Megan had an unruly class of adolescents on Thursday.",
+                    exampleCn: "在星期四的课堂上，梅根要面对一整班不听话的孩子。"
+                }
+            ]
+        },
+        {
+            id: 13,
+            phrase: "act up",
+            defEn: "behave badly; misbehave",
+            defCn: "调皮，不听话",
+            exampleEn: "Ricky sometimes likes to act up in class.",
+            exampleCn: "瑞奇时不时地喜欢在课堂上调皮。",
+            associated: [
+                {
+                    phrase: "indiscipline",
+                    defEn: "a lack of control or obedience",
+                    defCn: "n. 不遵守纪律或规定",
+                    exampleEn: "The coach apologised for his team's indiscipline.",
+                    exampleCn: "教练就他的队伍缺乏纪律的行为道了歉。"
+                },
+                {
+                    phrase: "meet the demand of...",
+                    defEn: "satisfy a certain need or desire",
+                    defCn: "满足某种需求",
+                    exampleEn: "Economic globalization requires more culturally-competent university graduates who can meet the new market demands.",
+                    exampleCn: "为满足经济全球化大潮的需要，市场对那些有知识有文化的大学毕业生有着越来越大的需求。"
+                },
+                {
+                    phrase: "be geared to sth.",
+                    defEn: "be in accordance with another thing",
+                    defCn: "与某种需求一致，符合某种需求",
+                    exampleEn: "Education should be geared to the students' needs and abilities.",
+                    exampleCn: "教育应根据学生的需求与能力量体裁衣。"
+                },
+                 {
+                    phrase: "inform sb. about sth.",
+                    defEn: "give sb. information about sth.",
+                    defCn: "让某人了解到某方面的信息",
+                    exampleEn: "Studying geography informs us about the different kinds of relationships.",
+                    exampleCn: "学习地理可以让我们了解到（不同事物间的）各种关系。"
+                }
+            ]
+        },
+        {
+            id: 14,
+            phrase: "put theory into practice",
+            defEn: "start to use a theory and see if it is effective",
+            defCn: "把理论运用到实践中去",
+            exampleEn: "The workshop helps students to put theory into practice.",
+            exampleCn: "研讨会可以帮助学生更好地让理论联系实际。",
+            associated: [
+                {
+                    phrase: "first-hand experience",
+                    defEn: "experience that has been gained by doing sth. yourself",
+                    defCn: "第一手经验，最直接的体验",
+                    exampleEn: "By doing experiments, students acquired first-hand experience with the periodic table of the chemical elements.",
+                    exampleCn: "通过亲手操作实验，学生得到了对于元素周期表的第一手经验。"
+                },
+                {
+                    phrase: "the responsibility for sth. falls on sb.",
+                    defEn: "someone's duty is to do sth.",
+                    defCn: "某人肩负着做某事的责任",
+                    exampleEn: "The responsibility for educating children used to fall both on parents and on teachers.",
+                    exampleCn: "在过去，往往是家长和老师共同肩负着教育孩子的责任。"
+                },
+                {
+                    phrase: "shirk one's responsibilities for sth.",
+                    defEn: "deliberately avoid doing sth. that one should do",
+                    defCn: "某人逃避某种责任",
+                    exampleEn: "Parents should not shirk their responsibilities for educating their children.",
+                    exampleCn: "家长不应该逃避教育自己孩子的重任。"
+                },
+                {
+                    phrase: "fulfil one's responsibilities",
+                    defEn: "perform or carry out one's responsibilities",
+                    defCn: "尽到责任",
+                    exampleEn: "Parents should fulfil their responsibilities and monitor their children's TV viewing.",
+                    exampleCn: "家长应该尽到他们监管孩子看电视的责任。"
+                }
+            ]
+        },
+        {
+            id: 15,
+            phrase: "deny sb. the freedom to do sth.",
+            defEn: "do not give sb. the opportunity or the power to do sth.",
+            defCn: "不给某人在某方面的自由",
+            exampleEn: "There is no reason to deny students the freedom to choose subjects that interest and motivate them.",
+            exampleCn: "剥夺孩子选择自己喜欢事物的自由是不明智的。",
+            associated: [
+                {
+                    phrase: "compulsory subject",
+                    defEn: "a subject that must be studied by all students",
+                    defCn: "必修科目",
+                    exampleEn: "It is recognised as an important compulsory subject throughout schooling.",
+                    exampleCn: "它在整个学校教育体系中均被认为是一门很重要的必修课。"
+                },
+                {
+                    phrase: "optional subjects / courses",
+                    defEn: "subjects / courses that may be chosen or not chosen",
+                    defCn: "选修课程",
+                    exampleEn: "Other subjects can be optional.",
+                    exampleCn: "其他学科都应该是可选择性学习的。"
+                },
+                {
+                    phrase: "kindle someone's interest in sth.",
+                    defEn: "make someone interested in sth.",
+                    defCn: "唤起某人对某事物的兴趣",
+                    exampleEn: "The students' interest in mathematics was kindled by Emma's excellent teaching.",
+                    exampleCn: "爱玛用她精湛的教学技巧重新燃起了学生们对数学的兴趣。"
+                }
+            ]
+        },
+        {
+            id: 16,
+            phrase: "There is no substitute for sb./sth.",
+            defEn: "sb./sth. is irreplaceable",
+            defCn: "某人/某事物是无法代替的",
+            exampleEn: "There is no substitute for a face-to-face relationship with a caring and well-informed teacher.",
+            exampleCn: "传统的面对面式教育是无可代替的。",
+            associated: [
+                {
+                    phrase: "distance learning",
+                    defEn: "a flexible form of learning where students can study from home",
+                    defCn: "远程教育",
+                    exampleEn: "The biggest advantage of distance learning programmes is their accessibility.",
+                    exampleCn: "远程教育的最大优势就是它可以随时随地地让我们开始学习。"
+                },
+                {
+                    phrase: "compromise",
+                    defEn: "an agreement between two sides; risk losing sth. important",
+                    defCn: "折中产物；牺牲",
+                    exampleEn: "All classroom learning is, in fact, a compromise between the different needs of various students.",
+                    exampleCn: "所有的课堂学习实际上都是在不同学生的不同学习需求上折中而成的产物。"
+                },
+                {
+                    phrase: "a happy medium",
+                    defEn: "a middle position",
+                    defCn: "折中方案",
+                    exampleEn: "There's a happy medium between studying all the time and not studying at all.",
+                    exampleCn: "在总是学习和一点不学之间，存在一个折中方案。"
+                }
+            ]
+        },
+        {
+            id: 17,
+            phrase: "be sb.'s mentor",
+            defEn: "an experienced person who gives advice to sb.",
+            defCn: "某人的良师益友 / 导师",
+            exampleEn: "Freya was my teacher, my mentor and my friend.",
+            exampleCn: "菲蕾亚在过去不光是我的老师，还是我的良师益友。",
+            associated: [
+                {
+                    phrase: "sb.'s peer",
+                    defEn: "someone who is of the same age as sb. else",
+                    defCn: "同龄人",
+                    exampleEn: "They are entering a wider community where teachers and peers will have just as much influences as their parents do.",
+                    exampleCn: "来自教师和同龄人的影响将会和父母在家中的影响一样重要。"
+                },
+                {
+                    phrase: "take someone under sb.'s wing",
+                    defEn: "help someone, especially someone who is younger and less experienced",
+                    defCn: "悉心帮助缺乏经验的晚辈",
+                    exampleEn: "My mentor took me under her wing at a time when I needed her the most.",
+                    exampleCn: "我的恩师在我最需要她的时候悉心帮助了我。"
+                },
+                {
+                    phrase: "burn the midnight oil",
+                    defEn: "work very late into the night",
+                    defCn: "(为了突击完成任务)学习或工作到深夜",
+                    exampleEn: "Abigail has to get the report finished by tomorrow so she'll be burning the midnight oil tonight.",
+                    exampleCn: "由于明天是阿比盖尔交报告的最后期限，今晚她必须要熬夜工作了。"
+                },
+                 {
+                    phrase: "study intensively",
+                    defEn: "study in a highly concentrated manner",
+                    defCn: "高强度地学习",
+                    exampleEn: "Many parents are concerned that exam-oriented education may cause students to study too intensively.",
+                    exampleCn: "很多家长担心应试教育会导致（学生）过于高强度地学习。"
+                }
+            ]
+        }
+    ];
+
+    // === JS 逻辑 ===
+
+    // 1. 初始化页面
+    window.onload = function() {
+        renderStudySection();
+        renderFlashcards();
+        renderQuiz();
+    };
+
+    // 2. 页面切换
+    function showSection(sectionId) {
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        document.getElementById(sectionId + '-section').classList.add('active');
+        
+        document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+        document.getElementById('btn-' + sectionId).classList.add('active');
+    }
+
+    // 3. 渲染核心课程 (Study Section)
+    function renderStudySection() {
+        const container = document.getElementById('study-section');
+        lessonData.forEach(item => {
+            let associatedHtml = '';
+            if (item.associated && item.associated.length > 0) {
+                associatedHtml = `<div class="associated-section">
+                    <span class="assoc-tag">常用联想短语</span>
+                    ${item.associated.map(assoc => `
+                        <div class="assoc-item">
+                            <div class="assoc-phrase">
+                                ${assoc.phrase}
+                                <button class="audio-btn" style="display:inline-flex; width:24px; height:24px; margin-left:10px;" onclick="speak('${assoc.phrase.replace(/'/g, "\\'")}')">🔊</button>
+                            </div>
+                            <div class="definition-en">${assoc.defEn}</div>
+                            <div class="definition-cn">${assoc.defCn}</div>
+                            <div class="example-box" style="background:#fff; border-left-color:var(--primary-color);">
+                                <div class="example-en">${assoc.exampleEn}</div>
+                                <div class="example-cn">${assoc.exampleCn}</div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>`;
+            }
+
+            const card = document.createElement('div');
+            card.className = 'phrase-card';
+            card.innerHTML = `
+                <div class="core-phrase">
+                    <div class="phrase-title">
+                        ${item.phrase}
+                        <button class="audio-btn" onclick="speak('${item.phrase.replace(/'/g, "\\'")}')">🔊</button>
+                    </div>
+                    <div class="definition-en">${item.defEn}</div>
+                    <div class="definition-cn">${item.defCn}</div>
+                    <div class="example-box">
+                        <div class="example-en">${item.exampleEn}</div>
+                        <div class="example-cn">${item.exampleCn}</div>
+                    </div>
+                </div>
+                ${associatedHtml}
+            `;
+            container.appendChild(card);
+        });
+    }
+
+    // 4. TTS 语音功能
+    function speak(text) {
+        if ('speechSynthesis' in window) {
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'en-GB'; // 雅思英式发音
+            window.speechSynthesis.speak(utterance);
+        } else {
+            alert("您的浏览器不支持语音播放功能。");
+        }
+    }
+
+    // 5. 渲染 Flashcards
+    function renderFlashcards() {
+        const grid = document.getElementById('flashcard-grid');
+        let allWords = [];
+        // 收集所有核心词和联想词
+        lessonData.forEach(item => {
+            allWords.push({ term: item.phrase, def: item.defCn });
+            if(item.associated) {
+                item.associated.forEach(assoc => {
+                    allWords.push({ term: assoc.phrase, def: assoc.defCn });
+                });
+            }
+        });
+
+        allWords.forEach(word => {
+            const card = document.createElement('div');
+            card.className = 'flashcard';
+            card.onclick = function() { this.classList.toggle('flipped'); };
+            card.innerHTML = `
+                <div class="flashcard-inner">
+                    <div class="flashcard-front">
+                        <h3>${word.term}</h3>
+                        <div class="click-hint">👆 点击翻转</div>
+                    </div>
+                    <div class="flashcard-back">
+                        ${word.def}
+                    </div>
+                </div>
+            `;
+            grid.appendChild(card);
+        });
+    }
+
+    // 6. 练习题数据
+    const questions = [
+        // 单选题 (Synonyms/Definitions)
+        {
+            type: 'radio',
+            title: "1. Which phrase means 'a learning technique that focuses on learning by repetition'?",
+            options: ["Lateral thinking", "Rote memorisation", "Core curriculum", "Self-discipline"],
+            answer: "Rote memorisation",
+            explanation: "Rote memorisation 定义为机械重复记忆。"
+        },
+        {
+            type: 'radio',
+            title: "2. If a process is 'arduous', it means it is:",
+            options: ["Very easy", "Rewarding but quick", "Tiring and requiring great effort", "Illegal"],
+            answer: "Tiring and requiring great effort",
+            explanation: "Arduous 意为艰苦的，费力的。"
+        },
+        {
+            type: 'radio',
+            title: "3. 'Indiscipline' implies a lack of:",
+            options: ["Money", "Control or obedience", "Knowledge", "Friends"],
+            answer: "Control or obedience",
+            explanation: "Indiscipline 意为无纪律，缺乏服从。"
+        },
+        {
+            type: 'radio',
+            title: "4. What is the opposite of a 'monolingual' person?",
+            options: ["Bilingual", "Gifted", "Well-rounded", "Unruly"],
+            answer: "Bilingual",
+            explanation: "Monolingual 是单语种，Bilingual 是双语种。"
+        },
+        {
+            type: 'radio',
+            title: "5. 'Repress individuality' means to:",
+            options: ["Encourage creativity", "Discourage qualities that make someone unique", "Wear a uniform", "Study math"],
+            answer: "Discourage qualities that make someone unique",
+            explanation: "Repress individuality 意为压制个性。"
+        },
+        
+        // 配对题 (逻辑上用单选模拟配对检查，或简单的选择) - 这里设计为根据定义选词
+        {
+            type: 'radio',
+            title: "6. [Match] 'The set of common courses that are required of all students' is:",
+            options: ["Extra-curricular activities", "Core curriculum", "Optional subjects", "Academic attainment"],
+            answer: "Core curriculum",
+            explanation: "核心课程的定义。"
+        },
+        {
+            type: 'radio',
+            title: "7. [Match] 'Quit school before graduation' describes:",
+            options: ["Skip school", "Drop out of school", "Fall short of expectations", "Slack off"],
+            answer: "Drop out of school",
+            explanation: "辍学的英文表达是 drop out of school。"
+        },
+        {
+            type: 'radio',
+            title: "8. [Match] 'Behave in a polite or socially acceptable way' means to be:",
+            options: ["Well-behaved", "Well-rounded", "Gifted", "Anti-social"],
+            answer: "Well-behaved",
+            explanation: "Well-behaved 意为行为得体。"
+        },
+
+        // 填空题 (Fill in the blanks)
+        {
+            type: 'text',
+            title: "9. Fill in the blank: 'Balancing change and tradition will be an ______ process for the new leaders.' (Hint: starts with 'a')",
+            answer: "arduous",
+            explanation: "sth. be an arduous process (艰苦的过程)。"
+        },
+        {
+            type: 'text',
+            title: "10. Fill in the blank: 'Some students ______ school because they dislike the material taught in class.' (Hint: avoid attendance)",
+            answer: "skip",
+            explanation: "skip school 意为逃学。"
+        },
+        {
+            type: 'text',
+            title: "11. Fill in the blank: 'The museum aims to ______ students' interest in science.' (Hint: ignite/spark)",
+            answer: "kindle",
+            explanation: "kindle someone's interest 唤起兴趣。"
+        },
+        {
+            type: 'text',
+            title: "12. Fill in the blank: 'Jennifer will learn the poem by ______ and perform it.' (Hint: memory)",
+            answer: "heart",
+            explanation: "learn by heart 熟记/背诵。"
+        },
+        {
+            type: 'text',
+            title: "13. Fill in the blank: 'Parents should not ______ their responsibilities for educating children.' (Hint: avoid)",
+            answer: "shirk",
+            explanation: "shirk responsibilities 逃避责任。"
+        },
+
+        // 判断题 (True/False)
+        {
+            type: 'radio',
+            title: "14. 'Slack off' means to work harder than usual.",
+            options: ["True", "False"],
+            answer: "False",
+            explanation: "Slack off 意为懈怠，不努力。"
+        },
+        {
+            type: 'radio',
+            title: "15. 'Lateral thinking' refers to solving problems in a creative, unconventional way.",
+            options: ["True", "False"],
+            answer: "True",
+            explanation: "Lateral thinking 是发散性/创造性思维。"
+        },
+        {
+            type: 'radio',
+            title: "16. A 'mentor' is usually someone younger and less experienced than you.",
+            options: ["True", "False"],
+            answer: "False",
+            explanation: "Mentor (导师) 通常是经验丰富的人。"
+        },
+        {
+            type: 'radio',
+            title: "17. 'Co-education' means educating boys and girls together.",
+            options: ["True", "False"],
+            answer: "True",
+            explanation: "Co-education 是男女合校。"
+        },
+
+        // 更多选择题 (综合)
+        {
+            type: 'radio',
+            title: "18. What is the synonym for 'satisfying' in an educational context?",
+            options: ["Frustrating", "Rewarding", "Challenging", "Boring"],
+            answer: "Rewarding",
+            explanation: "Rewarding 意为有回报的，令人满意的。"
+        },
+        {
+            type: 'radio',
+            title: "19. Which phrase describes a student who disturbs the class?",
+            options: ["A well-rounded student", "A disruptive student", "A gifted student", "A bilingual student"],
+            answer: "A disruptive student",
+            explanation: "Disruptive student 意为捣乱的/不守纪律的学生。"
+        },
+        {
+            type: 'radio',
+            title: "20. 'Burn the midnight oil' means:",
+            options: ["Cooking late at night", "Wasting resources", "Working/Studying very late", "Sleeping early"],
+            answer: "Working/Studying very late",
+            explanation: "Burn the midnight oil 意为熬夜工作或学习。"
+        },
+        {
+            type: 'radio',
+            title: "21. If you 'apply yourself', you:",
+            options: ["Submit an application form", "Work hard with attention", "Put on makeup", "Relax"],
+            answer: "Work hard with attention",
+            explanation: "Apply oneself 意为尽力去做，专注于。"
+        },
+        {
+            type: 'radio',
+            title: "22. 'First-hand experience' is obtained by:",
+            options: ["Reading books", "Listening to others", "Doing it yourself", "Watching TV"],
+            answer: "Doing it yourself",
+            explanation: "First-hand experience 是亲身/第一手经验。"
+        },
+        {
+            type: 'radio',
+            title: "23. 'Anti-social behaviour' causes damage to:",
+            options: ["Oneself only", "Society and others", "Homework", "Textbooks"],
+            answer: "Society and others",
+            explanation: "Anti-social behaviour 危害社会和他人。"
+        },
+        {
+            type: 'radio',
+            title: "24. 'Standardised tests' give every student:",
+            options: ["Different questions", "The same questions in the same format", "Different time limits", "Oral exams only"],
+            answer: "The same questions in the same format",
+            explanation: "标准化考试意味着统一试题和格式。"
+        },
+        {
+            type: 'radio',
+            title: "25. 'Come of age' means:",
+            options: ["Become an adult legally", "Become old", "Start school", "Graduate"],
+            answer: "Become an adult legally",
+            explanation: "Come of age 意为成年。"
+        }
+    ];
+
+    // 7. 渲染练习题
+    function renderQuiz() {
+        const form = document.getElementById('quiz-form');
+        questions.forEach((q, index) => {
+            const block = document.createElement('div');
+            block.className = 'question-block';
+            
+            let inputHtml = '';
+            if (q.type === 'radio') {
+                inputHtml = `<div class="options">
+                    ${q.options.map(opt => `
+                        <label>
+                            <input type="radio" name="q${index}" value="${opt}"> ${opt}
+                        </label>
+                    `).join('')}
+                </div>`;
+            } else if (q.type === 'text') {
+                inputHtml = `<input type="text" class="text-input" name="q${index}" placeholder="Type your answer here...">`;
+            }
+
+            block.innerHTML = `
+                <div class="question-title">${q.title}</div>
+                ${inputHtml}
+                <div class="feedback" id="feedback-q${index}"></div>
+                <div class="explanation" id="exp-q${index}" style="display:none">解析: ${q.explanation}</div>
+            `;
+            form.appendChild(block);
+        });
+    }
+
+    // 8. 检查答案
+    function checkAnswers() {
+        let score = 0;
+        questions.forEach((q, index) => {
+            let userAnswer = '';
+            const feedbackEl = document.getElementById(`feedback-q${index}`);
+            const expEl = document.getElementById(`exp-q${index}`);
+            
+            if (q.type === 'radio') {
+                const selected = document.querySelector(`input[name="q${index}"]:checked`);
+                userAnswer = selected ? selected.value : '';
+            } else {
+                userAnswer = document.querySelector(`input[name="q${index}"]`).value.trim();
+            }
+
+            // 简单的大小写不敏感比较
+            const isCorrect = userAnswer.toLowerCase() === q.answer.toLowerCase();
+
+            feedbackEl.style.display = 'block';
+            expEl.style.display = 'block';
+
+            if (isCorrect) {
+                score++;
+                feedbackEl.textContent = "✅ Correct!";
+                feedbackEl.className = "feedback correct";
+            } else {
+                feedbackEl.textContent = `❌ Incorrect. Correct answer: ${q.answer}`;
+                feedbackEl.className = "feedback incorrect";
+            }
+        });
+
+        const scoreDisplay = document.getElementById('score-display');
+        scoreDisplay.textContent = `Your Score: ${score} / ${questions.length}`;
+        
+        // 滚动到底部查看分数
+        scoreDisplay.scrollIntoView({behavior: "smooth"});
+    }
+
+</script>
+
+</body>
+</html>
